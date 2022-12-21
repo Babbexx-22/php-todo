@@ -69,12 +69,14 @@ pipeline {
           def server = Artifactory.server 'artifactory-server'
           def uploadSpec = """{
             "files": [
-            "pattern": "php-todo.zip"
-            "target": "Proj-14/php-todo"
-            "props": "type=zip;status=ready"
-          ]
+              {
+                "pattern": "php-todo.zip"
+                "target": "Proj-14/php-todo"
+                "props": "type=zip;status=ready"
+              }
+            ]
         }"""
-        
+
         server.upload spec: uploadSpec
         }
       }
