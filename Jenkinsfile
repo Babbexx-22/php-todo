@@ -68,7 +68,7 @@ pipeline {
 
         }
     }
-    
+
     stage ('Package Artifact') {
       steps {
         sh 'zip -qr php-todo.zip ${WORKSPACE}/*'
@@ -78,7 +78,7 @@ pipeline {
     stage ('Upload Artifact to Artifactory') {
           steps {
             script { 
-                 def server = Artifactory.server 'artifactory-servers'                 
+                 def server = Artifactory.server 'artifactory-server'                 
                  def uploadSpec = """{
                     "files": [
                       {
